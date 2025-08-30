@@ -8,10 +8,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Set theme on page load to prevent flash of unstyled content
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8fafc; /* Tailwind's gray-50 */
         }
         .section-title {
             font-size: 1.5rem;
@@ -21,14 +28,11 @@
             border-bottom: 2px solid #3b82f6;
             padding-bottom: 0.5rem;
         }
-        .link-icon {
-            display: inline-block;
-            width: 1.25rem;
-            height: 1.25rem;
-            margin-right: 0.5rem;
-            vertical-align: text-bottom;
+        .dark .section-title {
+            color: #e5e7eb;
+            border-bottom-color: #60a5fa;
         }
-        .publication-item, .project-card, .news-item {
+        .publication-item, .project-card, .news-item, .award-item {
             margin-bottom: 1.5rem;
             padding: 1rem;
             border-radius: 0.5rem;
@@ -36,7 +40,11 @@
             background-color: white;
             transition: box-shadow 0.3s;
         }
-        .publication-item:hover, .project-card:hover, .news-item:hover {
+        .dark .publication-item, .dark .project-card, .dark .news-item, .dark .award-item {
+            border-color: #374151;
+            background-color: #1f2937;
+        }
+        .publication-item:hover, .project-card:hover, .news-item:hover, .award-item:hover {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         .tag {
@@ -49,35 +57,49 @@
             padding: 0.125rem 0.625rem;
             border-radius: 9999px;
         }
+        .dark .tag {
+            background-color: #1e3a8a;
+            color: #93c5fd;
+        }
     </style>
 </head>
-<body class="text-gray-700">
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
 
     <!-- Header & Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
-                <a href="#" class="text-xl font-bold text-gray-800">Thanathai Lertpetchpun</a>
+                <a href="#" class="text-xl font-bold text-gray-800 dark:text-white">Thanathai Lertpetchpun</a>
             </div>
-            <div class="hidden md:flex space-x-6 text-gray-600">
-                <a href="#about" class="hover:text-blue-600">About</a>
-                <a href="#news" class="hover:text-blue-600">News</a>
-                <a href="#research" class="hover:text-blue-600">Research</a>
-                <a href="#projects" class="hover:text-blue-600">Projects</a>
-                <a href="CV.pdf" target="_blank" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors">Download CV</a>
+            <div class="hidden md:flex items-center space-x-6 text-gray-600 dark:text-gray-300">
+                <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">About</a>
+                <a href="#news" class="hover:text-blue-600 dark:hover:text-blue-400">News</a>
+                <a href="#research" class="hover:text-blue-600 dark:hover:text-blue-400">Publications</a>
+                <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+                <a href="#awards" class="hover:text-blue-600 dark:hover:text-blue-400">Awards</a>
+                <a href="CV.pdf" target="_blank" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 dark:hover:bg-blue-400 transition-colors">Download CV</a>
+                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
             </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+            <div class="md:hidden flex items-center">
+                 <button id="theme-toggle-mobile" class="text-gray-800 dark:text-gray-300 mr-4">
+                    <svg id="theme-toggle-dark-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    <svg id="theme-toggle-light-icon-mobile" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 010-1.414l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 100 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </button>
+                <button id="mobile-menu-button" class="text-gray-800 dark:text-gray-300 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </nav>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2 hover:text-blue-600">About</a>
-            <a href="#news" class="block py-2 hover:text-blue-600">News</a>
-            <a href="#research" class="block py-2 hover:text-blue-600">Research</a>
-            <a href="#projects" class="block py-2 hover:text-blue-600">Projects</a>
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 dark:bg-gray-800">
+            <a href="#about" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+            <a href="#news" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">News</a>
+            <a href="#research" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Publications</a>
+            <a href="#projects" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
+            <a href="#awards" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Awards</a>
             <a href="CV.pdf" target="_blank" class="block py-2 mt-2 bg-blue-500 text-white text-center rounded-md hover:bg-blue-600 transition-colors">Download CV</a>
         </div>
     </header>
@@ -88,39 +110,36 @@
         <!-- Hero Section -->
         <section class="flex flex-col md:flex-row items-center mb-16">
             <div class="md:w-3/4 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
                     Thanathai Lertpetchpun
                 </h1>
-                <p class="text-xl text-gray-600 mt-2">
+                <p class="text-xl text-gray-600 dark:text-gray-400 mt-2">
                     PhD Student in Electrical and Computer Engineering
                 </p>
-                <p class="text-lg text-blue-600 font-semibold mt-1">
+                <p class="text-lg text-blue-600 dark:text-blue-400 font-semibold mt-1">
                     University of Southern California
                 </p>
                 <p class="mt-4 max-w-xl text-lg">
-                    <!-- A brief, one-sentence summary of your research -->
-                    I research [Your Research Area], focusing on [Your Specific Topic]. My work aims to [Your Ultimate Goal or Impact]. I am advised by <a href="[ADVISOR_LINK]" class="text-blue-600 hover:underline">[Advisor's Name]</a>.
+                    I research speech processing and machine learning, focusing on speaker & emotion recognition and anti-spoofing. My work aims to build robust and fair voice technologies. I am advised by <a href="[ADVISOR_LINK]" class="text-blue-600 dark:text-blue-400 hover:underline">[Advisor's Name]</a>.
                 </p>
                 <!-- Social & Academic Links -->
                 <div class="mt-6 flex justify-center md:justify-start space-x-4">
-                    <a href="mailto:lertpetc@usc.edu" class="text-gray-500 hover:text-blue-600" title="Email">
+                    <a href="mailto:lertpetc@usc.edu" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400" title="Email">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=QfxNp1kAAAAJ&hl=en&authuser=1" target="_blank" class="text-gray-500 hover:text-blue-600" title="Google Scholar">
+                    <a href="https://scholar.google.com/citations?user=QfxNp1kAAAAJ&hl=en&authuser=1" target="_blank" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400" title="Google Scholar">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L12 6l-7 4 7 4 7-4-7-4z"/></svg>
                     </a>
-                    <a href="https://github.com/Sav-eng" target="_blank" class="text-gray-500 hover:text-blue-600" title="GitHub">
+                    <a href="https://github.com/Sav-eng" target="_blank" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400" title="GitHub">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/thanathai-lertpetchpun-201653177/" target="_blank" class="text-gray-500 hover:text-blue-600" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/thanathai-lertpetchpun-201653177/" target="_blank" class="text-gray-500 hover:text-blue-600 dark:hover:text-blue-400" title="LinkedIn">
                          <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     </a>
                 </div>
             </div>
             <div class="md:w-1/4 mt-8 md:mt-0">
-                <!-- Replace with a URL to your professional headshot -->
                 <img src="me.jpg" alt="Thanathai Lertpetchpun" class="rounded-full shadow-lg mx-auto bg-gray-200" style="width: 220px; height: 220px; object-fit: cover; object-position: center;">
-
             </div>
         </section>
 
@@ -129,11 +148,10 @@
             <h2 class="section-title">About Me</h2>
             <div class="text-lg leading-relaxed space-y-4">
                 <p>
-                    I am a PhD Student at the University of Southern California, where I'm a member of the <a href="https://sail.usc.edu/" class="text-blue-600 hover:underline" target="_blank">Signal Analysis and Interpretation Laboratory (SAIL)</a>. My research interests are in [Field 1], [Field 2], and [Field 3]. Specifically, I work on [more detailed explanation of your research interests and methods]. I'm passionate about using [Your Technology/Methods] to solve challenging problems in [Your Domain].
+                    I am a PhD Student at the University of Southern California, where I'm a member of the <a href="https://sail.usc.edu/" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">Signal Analysis and Interpretation Laboratory (SAIL)</a>. My research interests are in speech processing, representation learning, and fairness. Specifically, I work on speaker verification, speech emotion recognition, and voice anti-spoofing.
                 </p>
                 <p>
-                    Before starting my PhD, I received my Bachelor's Degree in Computer Engineering from Chulalongkorn University. I also worked as a research assistant with <a href="https://ekapolc.github.io/" class="text-blue-600 hover:underline" target="_blank">Ekapol Chuangsuwanich</a> in my research assistant on speaker verification and anti-spooing topics.
-                    I've also had the opportunity to intern at Tencent Thailand in 2021, where I worked on news and songs recommendation.
+                    Before starting my PhD, I received my Bachelor's Degree in Computer Engineering from Chulalongkorn University, where I worked as a research assistant with <a href="https://ekapolc.github.io/" class="text-blue-600 dark:text-blue-400 hover:underline" target="_blank">Ekapol Chuangsuwanich</a> on speaker verification and anti-spoofing. I've also had the opportunity to intern at Tencent Thailand in 2021, where I worked on news and song recommendation systems.
                 </p>
             </div>
         </section>
@@ -143,72 +161,63 @@
             <h2 class="section-title">News</h2>
             <div class="space-y-4">
                 <div class="news-item">
-                    <p><span class="font-semibold text-gray-800">[Aug 2025]</span> Three papers was accepted to Interspeech2025!</p>
+                    <p><span class="font-semibold text-gray-800 dark:text-gray-200">[Aug 2025]</span> Three papers were accepted to Interspeech 2025!</p>
                 </div>
-            </div>
-            <div class="space-y-4">
-                <div class="news-item">
-                    <p><span class="font-semibold text-gray-800">[Aug 2023]</span> One papers was accepted to Interspeech2023!</p>
+                 <div class="news-item">
+                    <p><span class="font-semibold text-gray-800 dark:text-gray-200">[Aug 2023]</span> One paper was accepted to Interspeech 2023!</p>
                 </div>
             </div>
         </section>
 
-
         <!-- Research / Publications Section -->
         <section id="research" class="py-16">
             <h2 class="section-title">Publications</h2>
-            <p class="text-md text-gray-600 mb-6 -mt-4">(* denotes equal contribution)</p>
+            <p class="text-md text-gray-600 dark:text-gray-400 mb-6 -mt-4">(* denotes equal contribution)</p>
             <div class="space-y-6">
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Voxlect: A Speech Foundation Model Benchmark for Modeling Dialects and Regional Languages Around the Globe</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Voxlect: A Speech Foundation Model Benchmark for Modeling Dialects and Regional Languages Around the Globe</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         Tiantian Feng, Kevin Huang, Anfeng Xu, Xuan Shi, <strong>Thanathai Lertpetchpun</strong>, Jihwan Lee, Yoonjeong Lee, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-md italic text-gray-500">Submitted to KDD, 2026</p>
                 </div>
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Vox-Profile: A Speech Foundation Model Benchmark for Characterizing Diverse Speaker and Speech Traits</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Vox-Profile: A Speech Foundation Model Benchmark for Characterizing Diverse Speaker and Speech Traits</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         Tiantian Feng, Jihwan Lee, Anfeng Xu, Yoonjeong Lee, <strong>Thanathai Lertpetchpun</strong>, Xuan Shi, Helin Wang, Thomas Thebaud, Laureano Moro-Velazquez, Dani Byrd, Najim Dehak, Shrikanth Narayanan
                     </p>
                     <p class="text-md italic text-gray-500">Submitted to Neurips, 2025</p>
                 </div>
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Developing a High-performance Framework for Speech Emotion Recognition in Naturalistic Conditions Challenge for Emotional Attribute Prediction</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Developing a High-performance Framework for Speech Emotion Recognition in Naturalistic Conditions Challenge for Emotional Attribute Prediction</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         <strong>Thanathai Lertpetchpun</strong>*, Tiantian Feng*, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-md italic text-gray-500">Interspeech, 2025</p>
                 </div>
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Developing A Top-tier Framework in Naturalistic Conditions Challenge for Categorized Emotion Prediction: From Speech Foundation Models and Learning Objective to Data Augmentation and Engineering Choices</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Developing A Top-tier Framework in Naturalistic Conditions Challenge for Categorized Emotion Prediction: From Speech Foundation Models and Learning Objective to Data Augmentation and Engineering Choices</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         Tiantian Feng*, <strong>Thanathai Lertpetchpun</strong>*, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-md italic text-gray-500">Interspeech, 2025</p>
                 </div>
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Amplifying Artifacts with Speech Enhancement in Voice Anti-spoofing</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Amplifying Artifacts with Speech Enhancement in Voice Anti-spoofing</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         Thanapat Trachu*, <strong>Thanathai Lertpetchpun</strong>*, Ekapol Chuangsuwanich
                     </p>
                     <p class="text-md italic text-gray-500">Interspeech, 2025</p>
                 </div>
-                <!-- Publication Item -->
                 <div class="publication-item">
-                    <h3 class="text-xl font-semibold text-gray-900">Instance-based Temporal Normalization for Speaker Verification</h3>
-                    <p class="text-md text-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Instance-based Temporal Normalization for Speaker Verification</h3>
+                    <p class="text-md text-gray-600 dark:text-gray-400">
                         <strong>Thanathai Lertpetchpun</strong>, Ekapol Chuangsuwanich
                     </p>
                     <p class="text-md italic text-gray-500">Interspeech, 2023</p>
                     <div class="mt-3 space-x-4">
-                        <a href="[LINK_TO_PDF]" class="text-blue-600 hover:underline">[Paper]</a>
-                        <a href="[LINK_TO_CODE]" class="text-blue-600 hover:underline">[Code]</a>
+                        <a href="[LINK_TO_PDF]" class="text-blue-600 dark:text-blue-400 hover:underline">[Paper]</a>
+                        <a href="[LINK_TO_CODE]" class="text-blue-600 dark:text-blue-400 hover:underline">[Code]</a>
                     </div>
                 </div>
             </div>
@@ -218,11 +227,10 @@
         <section id="projects" class="py-16">
             <h2 class="section-title">Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Project 1 -->
                 <div class="project-card flex flex-col">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">ARTS: Anonymous Real-Time Speech</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">ARTS: Anonymous Real-Time Speech</h3>
                     <p class="text-sm text-gray-500 mb-2">Oct 2024 - Present | USC - JHU - Meaning Company</p>
-                    <ul class="list-disc list-inside text-gray-600 flex-grow space-y-2">
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 flex-grow space-y-2">
                         <li>Developed a state-of-the-art model for emotion attribute prediction (2 Interspeech 2025 publications).</li>
                         <li>Developing a phoneme-wise alignment for training a voice conversion model.</li>
                     </ul>
@@ -232,11 +240,10 @@
                         <span class="tag">Real-Time Speech</span>
                     </div>
                 </div>
-                <!-- Project 2 -->
                 <div class="project-card flex flex-col">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Speaker Recognition and Anti-spoofing System</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Speaker Recognition and Anti-spoofing System</h3>
                      <p class="text-sm text-gray-500 mb-2">Aug 2022 - May 2024 | Chulalongkorn University</p>
-                    <ul class="list-disc list-inside text-gray-600 flex-grow space-y-2">
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 flex-grow space-y-2">
                         <li>Proposed a new normalization layer to address mismatched emotions and languages in speaker verification (1 Interspeech 2023 publication).</li>
                         <li>Proposed an amplification approach to amplify artifacts in spoofed utterances using speech enhancement (1 Interspeech 2025 publication).</li>
                     </ul>
@@ -248,41 +255,35 @@
                 </div>
             </div>
         </section>
-
-
-    <!-- Awards Section -->
-    <section id="awards" class="py-16">
-        <h2 class="section-title">Awards & Honors</h2>
-        <div class="space-y-4">
-                <!-- Award Item 1 -->
-            <div class="award-item">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-lg font-semibold text-gray-900">SER Challenge</h3>
-                    <p class="text-md text-gray-500 font-medium">Aug 2025</p>
+        
+        <!-- Awards Section -->
+        <section id="awards" class="py-16">
+            <h2 class="section-title">Awards & Honors</h2>
+            <div class="space-y-4">
+                 <div class="award-item">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">SER Challenge</h3>
+                        <p class="text-md text-gray-500 font-medium">Aug 2025</p>
+                    </div>
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+                        Rank 1st in attribute prediction and 2nd in category prediction on the Speech Emotion Recognition in Naturalistic Conditions Challenge.
+                    </p>
                 </div>
-                <p class="text-md text-gray-600 mt-1">
-                    Rank 1st in attribute prediction and 2nd in category prediction on the Speech Emotion Recognition in Naturalistic Conditions Challenge.
-                </p>
-            </div>
-            <!-- Award Item 2 -->
-                <div class="award-item">
-                <div class="flex justify-between items-start">
-                    <h3 class="text-lg font-semibold text-gray-900">Student Grant</h3>
-                    <p class="text-md text-gray-500 font-medium">Dec 2022</p>
+                 <div class="award-item">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Student Grant</h3>
+                        <p class="text-md text-gray-500 font-medium">Dec 2022</p>
+                    </div>
+                    <p class="text-md text-gray-600 dark:text-gray-400 mt-1">
+                        Awarded a Student Travel Grant for Interspeech 2025.
+                    </p>
                 </div>
-                <p class="text-md text-gray-600 mt-1">
-                    Awarded a Student Travel Grant for Interspeech 2025.
-                </p>
             </div>
-        </div>
-    </section>
-    
+        </section>
     </main>
 
-    
-
     <!-- Footer -->
-    <footer class="bg-gray-100 border-t border-gray-200">
+    <footer class="bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500">
             <p>&copy; <span id="current-year"></span> Thanathai Lertpetchpun. All rights reserved.</p>
             <p class="text-sm mt-1">Last updated: August 2025</p>
@@ -299,6 +300,55 @@
 
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Theme toggle logic
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIconMobile = document.getElementById('theme-toggle-dark-icon-mobile');
+        const themeToggleLightIconMobile = document.getElementById('theme-toggle-light-icon-mobile');
+
+        // Change the icons inside the button based on previous settings
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleLightIconMobile.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+            themeToggleDarkIconMobile.classList.remove('hidden');
+        }
+
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleBtnMobile = document.getElementById('theme-toggle-mobile');
+
+        const handleThemeToggle = () => {
+             // toggle icons inside button
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            themeToggleDarkIconMobile.classList.toggle('hidden');
+            themeToggleLightIconMobile.classList.toggle('hidden');
+
+            // if set via local storage previously
+            if (localStorage.getItem('theme')) {
+                if (localStorage.getItem('theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+            // if NOT set via local storage previously
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+        }
+
+        themeToggleBtn.addEventListener('click', handleThemeToggle);
+        themeToggleBtnMobile.addEventListener('click', handleThemeToggle);
     </script>
 
 </body>
