@@ -28,9 +28,10 @@
         
         body {
             font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
         }
         .section-title {
-            font-size: 1.875rem;
+            font-size: 2.25rem;
             font-weight: 700;
             color: #1e293b;
             margin-bottom: 2rem;
@@ -55,14 +56,13 @@
             border-bottom-color: #38bdf8;
         }
         .card {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0; /* Removed all bottom margin */
             padding: 1.25rem;
             border-radius: 0.75rem;
-            border: none !important;
-            background-color: white;
+            background-color: transparent;
             transition: all 0.3s ease;
             position: relative;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: none;
         }
         .card:nth-child(odd) {
             transform: rotate(0.3deg);
@@ -74,28 +74,18 @@
             transform: rotate(0.1deg);
         }
         
-        /* Ensure all card elements have no borders */
-        .news-item, .publication-item, .award-item, .project-card {
-            border: none !important;
-        }
-        
-        /* Override any Tailwind border classes */
-        .border, .border-slate-200, .border-slate-300, .border-slate-700, 
-        .border-gray-200, .border-gray-300, .border-gray-700 {
-            border: none !important;
-        }
         .card:hover {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             transform: translateY(-4px) rotate(0deg) !important;
         }
         .dark .card {
-            background-color: #1e293b;
+            background-color: transparent;
         }
         .tag {
             display: inline-block;
             background-color: #e0f2fe;
             color: #0c4a6e;
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             font-weight: 600;
             margin-right: 0.5rem;
             padding: 0.25rem 0.75rem;
@@ -129,12 +119,22 @@
         #theme-toggle-dark-icon-mobile, #theme-toggle-light-icon-mobile {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
+        /* Specific text size increases */
+        .card .text-lg { /* Publication title */
+            font-size: 1.375rem;
+        }
+        .card .text-sm { /* Authors and date */
+            font-size: 0.95rem;
+        }
+        .card .text-md { /* "(* denotes equal contribution)" */
+             font-size: 1.1rem;
+        }
     </style>
 </head>
 <body class="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 antialiased">
 
-    <!-- Header & Navigation -->
-    <header class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700" style="transform: rotate(0.1deg);">
+    <header class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-slate-200 dark:border-slate-700" style="transform: rotate(0.1deg); transition: transform 0.3s ease-in-out;">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div>
                 <a href="index.html" class="text-xl font-bold text-slate-800 dark:text-white">Thanathai Lertpetchpun</a>
@@ -157,85 +157,87 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 dark:bg-slate-800">
             <a href="index.html" class="block py-2 hover:text-sky-600 dark:hover:text-sky-400">Home</a>
             <a href="publications.html" class="block py-2 hover:text-sky-600 dark:hover:text-sky-400">Publications</a>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-16 md:py-24">
-        <!-- Publications Section -->
         <section class="fade-in-section">
             <h2 class="section-title">Selected Publications</h2>
             <p class="text-md text-slate-600 dark:text-slate-400 mb-6 -mt-6">(* denotes equal contribution)</p>
-            <div class="space-y-6">
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Voxlect: A Speech Foundation Model Benchmark for Modeling Dialects and Regional Languages Around the Globe</h3>
+            <ol class="list-decimal pl-5">
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://arxiv.org/pdf/2508.01691" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Voxlect: A Speech Foundation Model Benchmark for Modeling Dialects and Regional Languages Around the Globe
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Tiantian Feng, Kevin Huang, Anfeng Xu, Xuan Shi, <strong>Thanathai Lertpetchpun</strong>, Jihwan Lee, Yoonjeong Lee, Dani Byrd, Shrikanth Narayanan
+                        Tiantian Feng, Kevin Huang, Anfeng Xu, Xuan Shi, <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>, Jihwan Lee, Yoonjeong Lee, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Submitted to KDD, 2026</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://arxiv.org/pdf/2508.01691" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Vox-Profile: A Speech Foundation Model Benchmark for Characterizing Diverse Speaker and Speech Traits</h3>
+                </li>
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://arxiv.org/pdf/2505.14648" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Vox-Profile: A Speech Foundation Model Benchmark for Characterizing Diverse Speaker and Speech Traits
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Tiantian Feng, Jihwan Lee, Anfeng Xu, Yoonjeong Lee, <strong>Thanathai Lertpetchpun</strong>, Xuan Shi, Helin Wang, Thomas Thebaud, Laureano Moro-Velazquez, Dani Byrd, Najim Dehak, Shrikanth Narayanan
+                        Tiantian Feng, Jihwan Lee, Anfeng Xu, Yoonjeong Lee, <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>, Xuan Shi, Helin Wang, Thomas Thebaud, Laureano Moro-Velazquez, Dani Byrd, Najim Dehak, Shrikanth Narayanan
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Submitted to Neurips, 2025</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://arxiv.org/pdf/2505.14648" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Developing a High-performance Framework for Speech Emotion Recognition in Naturalistic Conditions Challenge for Emotional Attribute Prediction</h3>
+                </li>
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://www.isca-archive.org/interspeech_2025/lertpetchpun25_interspeech.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Developing a High-performance Framework for Speech Emotion Recognition in Naturalistic Conditions Challenge for Emotional Attribute Prediction
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        <strong>Thanathai Lertpetchpun</strong>*, Tiantian Feng*, Dani Byrd, Shrikanth Narayanan
+                        <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>*, Tiantian Feng*, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Interspeech, 2025</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://www.isca-archive.org/interspeech_2025/lertpetchpun25_interspeech.pdf" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Developing A Top-tier Framework in Naturalistic Conditions Challenge for Categorized Emotion Prediction...</h3>
+                </li>
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://www.isca-archive.org/interspeech_2025/feng25_interspeech.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Developing A Top-tier Framework in Naturalistic Conditions Challenge for Categorized Emotion Prediction...
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Tiantian Feng*, <strong>Thanathai Lertpetchpun</strong>*, Dani Byrd, Shrikanth Narayanan
+                        Tiantian Feng*, <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>*, Dani Byrd, Shrikanth Narayanan
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Interspeech, 2025</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://www.isca-archive.org/interspeech_2025/feng25_interspeech.pdf" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Amplifying Artifacts with Speech Enhancement in Voice Anti-spoofing</h3>
+                </li>
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://www.isca-archive.org/interspeech_2025/trachu25_interspeech.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Amplifying Artifacts with Speech Enhancement in Voice Anti-spoofing
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Thanapat Trachu*, <strong>Thanathai Lertpetchpun</strong>*, Ekapol Chuangsuwanich
+                        Thanapat Trachu*, <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>*, Ekapol Chuangsuwanich
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Interspeech, 2025</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://www.isca-archive.org/interspeech_2025/trachu25_interspeech.pdf" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Instance-based Temporal Normalization for Speaker Verification</h3>
+                </li>
+                <li class="card">
+                    <h3 class="text-lg font-semibold text-slate-900 dark:text-white">
+                        <a href="https://www.isca-speech.org/archive/interspeech_2023/lertpetchpun23_interspeech.html" target="_blank" rel="noopener noreferrer" class="hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+                            Instance-based Temporal Normalization for Speaker Verification
+                        </a>
+                    </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        <strong>Thanathai Lertpetchpun</strong>, Ekapol Chuangsuwanich
+                        <strong class="text-sky-700 dark:text-sky-400">Thanathai Lertpetchpun</strong>, Ekapol Chuangsuwanich
                     </p>
                     <p class="text-sm italic text-slate-500 mt-1">Interspeech, 2023</p>
-                    <div class="mt-3 space-x-4">
-                        <a href="https://www.isca-speech.org/archive/interspeech_2023/lertpetchpun23_interspeech.html" class="text-sky-600 dark:text-sky-400 hover:underline font-semibold text-sm">[Paper]</a>
-                    </div>
-                </div>
-            </div>
+                </li>
+            </ol>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="bg-slate-200 dark:bg-slate-800 border-t border-slate-300 dark:border-slate-700 mt-16 md:mt-24">
         <div class="container mx-auto px-6 py-8 text-center text-slate-500">
             <p>&copy; <span id="current-year"></span> Thanathai Lertpetchpun. All rights reserved.</p>
@@ -313,6 +315,24 @@
 
         sections.forEach(section => {
             observer.observe(section);
+        });
+
+        // Hide/show navbar on scroll
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide navbar
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show navbar
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
         });
     </script>
 
