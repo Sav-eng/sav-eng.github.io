@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Samples - ICASSP Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            border-bottom: 3px solid #007acc;
+            padding-bottom: 10px;
+        }
+        
+        .sample {
+            margin: 30px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+        
+        .sample-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: #007acc;
+            font-weight: bold;
+        }
+        
+        .emphasis {
+            background-color: #e3f2fd;
+            padding: 2px 4px;
+            font-style: italic;
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .audio-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .audio-sample {
+            min-width: 250px;
+        }
+        
+        .audio-label {
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 5px;
+            font-size: 14px;
+            display: none;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Text-to-Speech Synthesis Samples</h1>
+        <h2 style="text-align: center; color: #000000; font-size: 20px; margin-bottom: 10px;">Quantifying Speaker Embedding Phonological Rule Interactions in Accented Speech Synthesis</h2>
+        <p style="text-align: center; color: #666; font-style: italic;">ICASSP 2026 Paper Submission</p>
+        
+        <div class="sample">
+            <!-- <div class="caption">Sample 1: Natural speech synthesis with prosodic emphasis</div> -->
+            <div class="sample-text">
+                <strong>Transcript:</strong> <span class="highlight">First</span> mee<span class="highlight">ting</span> was next week.
+                <!-- The <span class="highlight">quick brown fox</span> jumps over the <span class="emphasis">lazy dog</span>. 
+                This sentence demonstrates the system's ability to handle <span class="highlight">varied phonetic content</span> 
+                while maintaining <span class="emphasis">natural prosody</span> and clear articulation. -->
+
+            </div>
+            <div class="audio-container">
+                <div class="audio-sample">
+                    <div class="audio-label">American English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/1_us.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">American English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/1_us_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/1_uk.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/1_uk_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sample">
+            <!-- <div class="caption">Sample 2: Emotional expression and intonation control</div> -->
+            <div class="sample-text">
+                <strong>Transcript:</strong> <span class="highlight">In the end</span>, howe<span class="highlight">ver</span>, it all came toge<span class="highlight">ther</span>.
+            </div>
+            <div class="audio-container">
+                <div class="audio-sample">
+                    <div class="audio-label">American English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/2_us.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">American English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/2_us_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/2_uk.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/2_uk_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sample">
+            <!-- <div class="caption">Sample 3: Technical content with proper pronunciation</div> -->
+            <div class="sample-text">
+                <strong>Transcript:</strong> <span class="highlight">Cer</span>tainly, in <span class="highlight">terms</span> of league position, we must be favorites.
+                <!-- The <span class="highlight">neural network architecture</span> employs attention mechanisms 
+                to improve <span class="emphasis">speech quality</span> and reduce artifacts. The model 
+                achieves <span class="highlight">state-of-the-art performance</span> on standard benchmarks 
+                while maintaining <span class="emphasis">computational efficiency</span>. -->
+            </div>
+            <div class="audio-container">
+                <div class="audio-sample">
+                    <div class="audio-label">American English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/3_us.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">American English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/3_us_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/3_uk.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/3_uk_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sample">
+            <!-- <div class="caption">Sample 4: Long-form content with consistent quality</div> -->
+            <div class="sample-text">
+                <strong>Transcript:</strong> Re<span class="highlight">tirement?</span> Who <span class="highlight">knows</span>?
+                <!-- Artificial intelligence has <span class="highlight">revolutionized</span> the field of 
+                speech synthesis. Modern systems can generate <span class="emphasis">highly realistic</span> 
+                human-like speech from text input. These advances have applications in 
+                <span class="highlight">accessibility technology</span>, virtual assistants, and 
+                <span class="emphasis">content creation</span> platforms. -->
+            </div>
+            <div class="audio-container">
+                <div class="audio-sample">
+                    <div class="audio-label">American English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/4_us.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">American English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/4_us_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/4_uk.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <div class="audio-sample">
+                    <div class="audio-label">British English + Rules:</div>
+                    <audio controls>
+                        <source src="samples_icassp26/4_uk_rule.wav" type="audio/wav">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+        </div>
+        
+        <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+            <p>Generated samples for ICASSP 2026 submission purposes only</p>
+        </footer>
+    </div>
+</body>
+</html>
