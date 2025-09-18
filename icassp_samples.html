@@ -125,12 +125,16 @@
         <h2 style="text-align: center; color: #000000; font-size: 20px; margin-bottom: 10px;">Quantifying Speaker Embedding Phonological Rule Interactions in Accented Speech Synthesis</h2>
         <p style="text-align: center; color: #666; font-style: italic;">ICASSP 2026 Paper Submission</p>
         
+        <p style="margin: 20px 0; padding: 15px; background-color: #f0f8ff; border-left: 4px solid #007acc; color: #333; font-size: 14px;">
+            <strong>Note:</strong> Syllables in the text shown in <span style="color: #007acc; font-weight: bold;">blue</span> are those modified by the American → British rule. The corresponding changed segments in the American IPA and British IPA rows (Kokoro inputs) are highlighted in <span style="background-color: #ffff99; padding: 2px;">yellow</span>. Phoneme transcriptions use the American and British IPA sets defined in the Kokoro TTS model.
+        </p>
+        
         <div class="sample">
             <!-- <div class="caption">Sample 1: Natural speech synthesis with prosodic emphasis</div> -->
             <div class="sample-text">
-                <strong>Transcript:</strong> <span class="highlight">First</span> mee<span class="highlight">ting</span> was next week.<br>
-                <strong>American Phonemes:</strong> f<span class="phoneme-diff">ˈɜɹ</span>st m<span class="phoneme-diff">ˈiT</span>ɪŋ wʌz nˈɛkst wˈik.<br>
-                <strong>British Phonemes:</strong> f<span class="phoneme-diff">ˈɜə</span>st m<span class="phoneme-diff">ˈit</span>ɪŋ wʌz nˈɛkst wˈik.
+                <strong>Text:</strong> <span class="highlight">First</span> mee<span class="highlight">ting</span> was next week.<br>
+                <strong>American IPA (Kokoro):</strong> <span class="phoneme-diff">fˈɜɹ</span>st mˈi<span class="phoneme-diff">Tɪŋ</span> wʌz nˈɛkst wˈik.<br>
+                <strong>British IPA (Kokoro):</strong> <span class="phoneme-diff">fˈɜə</span>st mˈi<span class="phoneme-diff">tɪŋ</span> wʌz nˈɛkst wˈik.
                 <!-- The <span class="highlight">quick brown fox</span> jumps over the <span class="emphasis">lazy dog</span>. 
                 This sentence demonstrates the system's ability to handle <span class="highlight">varied phonetic content</span> 
                 while maintaining <span class="emphasis">natural prosody</span> and clear articulation. -->
@@ -139,8 +143,8 @@
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Wav</th>
+                        <th>Condition</th>
+                        <th>Audio (wav)</th>
                         <th>American Probability</th>
                         <th>British Probability</th>
                         <th>American Similarity</th>
@@ -187,15 +191,15 @@
         <div class="sample">
             <!-- <div class="caption">Sample 2: Emotional expression and intonation control</div> -->
             <div class="sample-text">
-                <strong>Transcript:</strong> In the end, howe<span class="highlight">ver</span>, it all came toge<span class="highlight">ther</span>.<br>
-                <strong>American Phonemes:</strong> ɪn ði ˈɛnd, hWˈɛvə<span class="phoneme-diff">ɹ</span>, ɪt ˈɔl kˈAm təɡˈɛðə<span class="phoneme-diff">ɹ</span>.<br>
-                <strong>British Phonemes:</strong> ɪn ði ˈɛnd, hWˈɛvə<span class="phoneme-diff">ə</span>, ɪt ˈɔl kˈAm təɡˈɛðə<span class="phoneme-diff">ə</span>.
+                <strong>Text:</strong> In the end, howe<span class="highlight">ver</span>, it all came toge<span class="highlight">ther</span>.<br>
+                <strong>American IPA (Kokoro):</strong> ɪn ði ˈɛnd, hWˈɛ<span class="phoneme-diff">vəɹ</span>, ɪt ˈɔl kˈAm təɡˈɛ<span class="phoneme-diff">ðəɹ</span>.<br>
+                <strong>British IPA (Kokoro):</strong> ɪn ði ˈɛnd, hWˈɛ<span class="phoneme-diff">vəə</span>, ɪt ˈɔl kˈAm təɡˈɛ<span class="phoneme-diff">ðəə</span>.
             </div>
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Wav</th>
+                        <th>Condition</th>
+                        <th>Audio (wav)</th>
                         <th>American Probability</th>
                         <th>British Probability</th>
                         <th>American Similarity</th>
@@ -242,9 +246,9 @@
         <div class="sample">
             <!-- <div class="caption">Sample 3: Technical content with proper pronunciation</div> -->
                         <div class="sample-text">
-                <strong>Transcript:</strong> <span class="highlight">Cer</span>tainly, in <span class="highlight">terms</span> of league position, we must be favorites.<br>
-                <strong>American Phonemes:</strong> s<span class="phoneme-diff">ˈɜɹ</span>tnli, ɪn t<span class="phoneme-diff">ˈɜɹ</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvə<span class="phoneme-diff">ɹə</span>ts.<br>
-                <strong>British Phonemes:</strong> s<span class="phoneme-diff">ˈɜə</span>tnli, ɪn t<span class="phoneme-diff">ˈɜə</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvə<span class="phoneme-diff">ɹə</span>ts.
+                <strong>Text:</strong> <span class="highlight">Cer</span>tainly, in <span class="highlight">terms</span> of league position, we must be favorites.<br>
+                <strong>American IPA (Kokoro):</strong> <span class="phoneme-diff">sˈɜɹ</span>tnli, ɪn <span class="phoneme-diff">tˈɜɹmz</span> ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvəɹəts.<br>
+                <strong>British IPA (Kokoro):</strong> <span class="phoneme-diff">sˈɜə</span>tnli, ɪn <span class="phoneme-diff">tˈɜəmz</span> ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvəɹəts.
                 <!-- The <span class="highlight">neural network architecture</span> employs attention mechanisms 
                 to improve <span class="emphasis">speech quality</span> and reduce artifacts. The model 
                 achieves <span class="highlight">state-of-the-art performance</span> on standard benchmarks 
@@ -253,8 +257,8 @@
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Wav</th>
+                        <th>Condition</th>
+                        <th>Audio (wav)</th>
                         <th>American Probability</th>
                         <th>British Probability</th>
                         <th>American Similarity</th>
@@ -301,9 +305,9 @@
         <div class="sample">
             <!-- <div class="caption">Sample 4: Long-form content with consistent quality</div> -->
             <div class="sample-text">
-                <strong>Transcript:</strong> Re<span class="highlight">tirement?</span> Who <span class="highlight">knows</span>?<br>
-                <strong>American Phonemes:</strong> <span class="phoneme-diff">ɹətˈIəɹ</span>mᵊnt? hˌu n<span class="phoneme-diff">ˈO</span>z?<br>
-                <strong>British Phonemes:</strong> <span class="phoneme-diff">ɹətˈIəə</span>mᵊnt? hˌu n<span class="phoneme-diff">ˈQ</span>z?
+                <strong>Text:</strong> Re<span class="highlight">tire</span>ment? Who <span class="highlight">knows?</span><br>
+                <strong>American IPA (Kokoro):</strong> ɹə<span class="phoneme-diff">tˈIəɹ</span>mᵊnt? hˌu <span class="phoneme-diff">nˈOz?</span><br>
+                <strong>British IPA (Kokoro):</strong> ɹə<span class="phoneme-diff">tˈIəə</span>mᵊnt? hˌu <span class="phoneme-diff">nˈQz?</span>
                 <!-- Artificial intelligence has <span class="highlight">revolutionized</span> the field of 
                 speech synthesis. Modern systems can generate <span class="emphasis">highly realistic</span> 
                 human-like speech from text input. These advances have applications in 
@@ -313,8 +317,8 @@
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Wav</th>
+                        <th>Condition</th>
+                        <th>Audio (wav)</th>
                         <th>American Probability</th>
                         <th>British Probability</th>
                         <th>American Similarity</th>
@@ -360,15 +364,15 @@
         
         <div class="sample">
             <div class="sample-text">
-                <strong>Transcript:</strong> A b<span class="highlight">ottle</span> of w<span class="highlight">ater</span>.<br>
-                <strong>American Phonemes:</strong> ɐ b<span class="phoneme-diff">ˈɑT</span>əl ʌv w<span class="phoneme-diff">ˈɔTəɹ</span>?<br>
-                <strong>British Phonemes:</strong> ɐ b<span class="phoneme-diff">ˈɒt</span>əl ʌv w<span class="phoneme-diff">ˈɔtəə</span>?
+                <strong>Text:</strong> A <span class="highlight">bottle</span> of <span class="highlight">water</span>.<br>
+                <strong>American IPA (Kokoro):</strong> ɐ <span class="phoneme-diff">bˈɑTəl</span> ʌv <span class="phoneme-diff">wˈɔTəɹ</span>?<br>
+                <strong>British IPA (Kokoro):</strong> ɐ <span class="phoneme-diff">bˈɒtəl</span> ʌv <span class="phoneme-diff">wˈɔtəə</span>?
             </div>
             <table class="results-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Wav</th>
+                        <th>Condition</th>
+                        <th>Audio (wav)</th>
                         <th>American Probability</th>
                         <th>British Probability</th>
                         <th>American Similarity</th>
@@ -413,7 +417,7 @@
         </div>
         
         <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
-            <p>Generated samples for ICASSP 2026 submission purposes only</p>
+            <p>Generated samples are for ICASSP 2026 submission purposes only.</p>
         </footer>
     </div>
 </body>
