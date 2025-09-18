@@ -78,6 +78,34 @@
             min-width: 250px;
         }
         
+        .results-table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 12px;
+        }
+        
+        .results-table th,
+        .results-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .results-table th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        
+        .results-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+        
+        .results-table audio {
+            width: 150px;
+            height: 30px;
+        }
+        
         .audio-label {
             font-weight: bold;
             color: #000000;
@@ -108,36 +136,52 @@
                 while maintaining <span class="emphasis">natural prosody</span> and clear articulation. -->
 
             </div>
-            <div class="audio-container">
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/1_us.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/1_us_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/1_uk.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/1_uk_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wav</th>
+                        <th>American Probability</th>
+                        <th>British Probability</th>
+                        <th>American Similarity</th>
+                        <th>British Similarity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/1_us.wav" type="audio/wav"></audio></td>
+                        <td>0.969</td>
+                        <td>0.022</td>
+                        <td>0.729</td>
+                        <td>-0.073</td>
+                    </tr>
+                    <tr>
+                        <td>American Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/1_us_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.974</td>
+                        <td>0.015</td>
+                        <td>0.765</td>
+                        <td>-0.156</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/1_uk.wav" type="audio/wav"></audio></td>
+                        <td>0.150</td>
+                        <td>0.643</td>
+                        <td>0.252</td>
+                        <td>0.757</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/1_uk_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.114</td>
+                        <td>0.731</td>
+                        <td>0.207</td>
+                        <td>0.817</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <div class="sample">
@@ -147,79 +191,111 @@
                 <strong>Phonemes American:</strong> ɪn ði ˈɛnd, hWˈɛvə<span class="phoneme-diff">ɹ</span>, ɪt ˈɔl kˈAm təɡˈɛðə<span class="phoneme-diff">ɹ</span>.<br>
                 <strong>Phonemes British:</strong> ɪn ði ˈɛnd, hWˈɛvə<span class="phoneme-diff">ə</span>, ɪt ˈɔl kˈAm təɡˈɛðə<span class="phoneme-diff">ə</span>.
             </div>
-            <div class="audio-container">
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/2_us.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/2_us_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/2_uk.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/2_uk_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wav</th>
+                        <th>American Probability</th>
+                        <th>British Probability</th>
+                        <th>American Similarity</th>
+                        <th>British Similarity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/2_us.wav" type="audio/wav"></audio></td>
+                        <td>0.975</td>
+                        <td>0.022</td>
+                        <td>0.620</td>
+                        <td>-0.011</td>
+                    </tr>
+                    <tr>
+                        <td>American Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/2_us_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.815</td>
+                        <td>0.138</td>
+                        <td>0.617</td>
+                        <td>0.220</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/2_uk.wav" type="audio/wav"></audio></td>
+                        <td>0.016</td>
+                        <td>0.980</td>
+                        <td>0.056</td>
+                        <td>0.666</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/2_uk_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.001</td>
+                        <td>0.988</td>
+                        <td>-0.222</td>
+                        <td>0.944</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <div class="sample">
             <!-- <div class="caption">Sample 3: Technical content with proper pronunciation</div> -->
             <div class="sample-text">
                 <strong>Transcript:</strong> <span class="highlight">Cer</span>tainly, in <span class="highlight">terms</span> of league position, we must be favorites.<br>
-                <strong>Phonemes American:</strong> s<span class="phoneme-diff">ˈɜɹ</span>tnli, ɪn t<span class="phoneme-diff">ˈɜɹ</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvə<span class="phoneme-diff">ɹə</span>ts.<br>
-                <strong>Phonemes British:</strong> s<span class="phoneme-diff">ˈɜə</span>tnli, ɪn t<span class="phoneme-diff">ˈɜə</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvə<span class="phoneme-diff">ɹə</span>ts.
+                <strong>Phonemes American:</strong> s<span class="phoneme-diff">ˈɜɹ</span>tnli, ɪn t<span class="phoneme-diff">ˈɜɹ</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvəɹəts.<br>
+                <strong>Phonemes British:</strong> s<span class="phoneme-diff">ˈɜə</span>tnli, ɪn t<span class="phoneme-diff">ˈɜə</span>mz ʌv lˈiɡ pəzˈɪʃən, wi mˈʌst bi fˈAvəɹəts.
                 <!-- The <span class="highlight">neural network architecture</span> employs attention mechanisms 
                 to improve <span class="emphasis">speech quality</span> and reduce artifacts. The model 
                 achieves <span class="highlight">state-of-the-art performance</span> on standard benchmarks 
                 while maintaining <span class="emphasis">computational efficiency</span>. -->
             </div>
-            <div class="audio-container">
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/3_us.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/3_us_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/3_uk.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/3_uk_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wav</th>
+                        <th>American Probability</th>
+                        <th>British Probability</th>
+                        <th>American Similarity</th>
+                        <th>British Similarity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/3_us.wav" type="audio/wav"></audio></td>
+                        <td>0.976</td>
+                        <td>0.006</td>
+                        <td>0.935</td>
+                        <td>-0.278</td>
+                    </tr>
+                    <tr>
+                        <td>American Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/3_us_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.971</td>
+                        <td>0.007</td>
+                        <td>0.946</td>
+                        <td>-0.270</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/3_uk.wav" type="audio/wav"></audio></td>
+                        <td>0.091</td>
+                        <td>0.132</td>
+                        <td>0.429</td>
+                        <td>0.568</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/3_uk_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.125</td>
+                        <td>0.199</td>
+                        <td>0.442</td>
+                        <td>0.613</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <div class="sample">
@@ -234,36 +310,52 @@
                 <span class="highlight">accessibility technology</span>, virtual assistants, and 
                 <span class="emphasis">content creation</span> platforms. -->
             </div>
-            <div class="audio-container">
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/4_us.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/4_us_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/4_uk.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/4_uk_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wav</th>
+                        <th>American Probability</th>
+                        <th>British Probability</th>
+                        <th>American Similarity</th>
+                        <th>British Similarity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/4_us.wav" type="audio/wav"></audio></td>
+                        <td>0.959</td>
+                        <td>0.035</td>
+                        <td>0.662</td>
+                        <td>-0.008</td>
+                    </tr>
+                    <tr>
+                        <td>American Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/4_us_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.973</td>
+                        <td>0.020</td>
+                        <td>0.730</td>
+                        <td>-0.082</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/4_uk.wav" type="audio/wav"></audio></td>
+                        <td>0.741</td>
+                        <td>0.232</td>
+                        <td>0.576</td>
+                        <td>0.166</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/4_uk_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.068</td>
+                        <td>0.876</td>
+                        <td>0.196</td>
+                        <td>0.759</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <div class="sample">
@@ -272,36 +364,52 @@
                 <strong>Phonemes American:</strong> ɐ b<span class="phoneme-diff">ˈɑT</span>əl ʌv w<span class="phoneme-diff">ˈɔTəɹ</span>?<br>
                 <strong>Phonemes British:</strong> ɐ b<span class="phoneme-diff">ˈɒt</span>əl ʌv w<span class="phoneme-diff">ˈɔtəə</span>?
             </div>
-            <div class="audio-container">
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/5_us.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">American Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/5_us_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/5_uk.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-                <div class="audio-sample">
-                    <div class="audio-label">British Speaker Embedding + Rules:</div>
-                    <audio controls>
-                        <source src="samples_icassp26/5_uk_rule.wav" type="audio/wav">
-                        Your browser does not support the audio element.
-                    </audio>
-                </div>
-            </div>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Wav</th>
+                        <th>American Probability</th>
+                        <th>British Probability</th>
+                        <th>American Similarity</th>
+                        <th>British Similarity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>American Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/5_us.wav" type="audio/wav"></audio></td>
+                        <td>0.986</td>
+                        <td>0.007</td>
+                        <td>0.836</td>
+                        <td>-0.186</td>
+                    </tr>
+                    <tr>
+                        <td>American Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/5_us_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.027</td>
+                        <td>0.341</td>
+                        <td>0.056</td>
+                        <td>0.782</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb</td>
+                        <td><audio controls><source src="samples_icassp26/5_uk.wav" type="audio/wav"></audio></td>
+                        <td>0.012</td>
+                        <td>0.945</td>
+                        <td>-0.022</td>
+                        <td>0.955</td>
+                    </tr>
+                    <tr>
+                        <td>British Speaker Emb + Rules</td>
+                        <td><audio controls><source src="samples_icassp26/5_uk_rule.wav" type="audio/wav"></audio></td>
+                        <td>0.006</td>
+                        <td>0.973</td>
+                        <td>-0.159</td>
+                        <td>0.936</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         
         <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
