@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Samples – Table 4</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f6f9;
+      color: #1a1a2e;
+      padding: 2rem 1rem 4rem;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+    }
+
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      color: #1a1a2e;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 720px;
+    }
+
+    .table-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      overflow-x: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    thead th {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 14px 16px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    thead th.col-id {
+      width: 2.5rem;
+      background: #12122a;
+    }
+
+    thead th.col-transcript {
+      text-align: left;
+      background: #12122a;
+      min-width: 260px;
+    }
+
+    tbody tr:nth-child(even) { background: #f8f9fc; }
+    tbody tr:hover { background: #eef1f8; }
+
+    tbody td {
+      padding: 10px 14px;
+      vertical-align: middle;
+      border-bottom: 1px solid #e8eaf0;
+    }
+
+    td.col-id {
+      text-align: center;
+      font-weight: 700;
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    td.col-transcript {
+      font-size: 0.9rem;
+      color: #333;
+      line-height: 1.4;
+    }
+
+    td.col-audio {
+      text-align: center;
+    }
+
+    audio {
+      display: block;
+      width: 160px;
+      margin: 0 auto;
+      height: 32px;
+    }
+
+    /* system label chips in header */
+    .sys-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 2px 7px;
+      font-size: 0.78rem;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      letter-spacing: 0;
+    }
+
+    caption {
+      caption-side: bottom;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      color: #999;
+      text-align: left;
+    }
+
+    .abstract {
+      background: #fff;
+      border-left: 4px solid #1a1a2e;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      max-width: 860px;
+    }
+
+    .abstract h2 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #1a1a2e;
+      margin-bottom: 0.6rem;
+    }
+
+    .abstract p {
+      font-size: 0.92rem;
+      color: #444;
+      line-height: 1.75;
+      max-width: 100%;
+    }
+
+    .samples-desc p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 720px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Audio Samples</h1>
+  <section class="abstract">
+    <h2>Abstract</h2>
+    <p>Accent plays a crucial role in speaker identity and broad utility of speech technologies. Existing accented Text-to-Speech (TTS) systems either require large-scale accented datasets or lack fine-grained phoneme-level controllability. The present work describes an accented TTS framework that combines coarse phonological rules with a pretrained multilingual TTS model, requiring no accented training data and no target-accent speaker embeddings. Additionally, the trade-off between explicit phoneme-level duration alignment and natural language-specific timing is examined. Experimental results demonstrate effective accent shifts while maintaining speech quality and perceptual naturalness, showing that combining knowledge-based phonological transformations with native-language speaker embeddings can generate controllable L2-accented English.</p>
+  </section>
+  <section class="samples-desc">
+    <p>
+      We provide 10 sample transcripts for each system. A total of 7 systems are included, corresponding to those
+      reported in Table 4 of the paper.
+    </p>
+  </section>
+</header>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-id">#</th>
+        <th class="col-transcript">Transcript</th>
+        <th><span class="sys-label">US Spk Emb</span></th>
+        <th><span class="sys-label">US Spk Emb + SP rules</span></th>
+        <th><span class="sys-label">US Spk Emb + IN rules</span></th>
+        <th><span class="sys-label">SP Emb</span></th>
+        <th><span class="sys-label">SP Emb + SP rules</span></th>
+        <th><span class="sys-label">IN Emb</span></th>
+        <th><span class="sys-label">IN Emb + IN rules</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-id">1</td>
+        <td class="col-transcript">This very tall teacher closed the big park.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_01.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_01.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">2</td>
+        <td class="col-transcript">They put the small stone in the box.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_02.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_02.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">3</td>
+        <td class="col-transcript">Spring starts before the cold winter.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_03.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_03.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">4</td>
+        <td class="col-transcript">The zebra judged the funny film.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_04.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_04.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">5</td>
+        <td class="col-transcript">The bird lives near the river bank.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_05.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_05.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">6</td>
+        <td class="col-transcript">The little button was very broken.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_06.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_06.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">7</td>
+        <td class="col-transcript">Kate found three big red stones.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_07.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_07.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">8</td>
+        <td class="col-transcript">Things are going very well today.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_08.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_08.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">9</td>
+        <td class="col-transcript">The cold glass was filled with water.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_09.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_09.wav"></audio></td>
+      </tr>
+
+      <tr>
+        <td class="col-id">10</td>
+        <td class="col-transcript">The smart driver fixed the broken clock.</td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_SP_rules/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="US_emb_IN_rules/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="SP_emb_SP_rules/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb/human_eval_10.wav"></audio></td>
+        <td class="col-audio"><audio controls preload="none" src="IN_emb_IN_rules/human_eval_10.wav"></audio></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
